@@ -20,7 +20,7 @@ template Sujiko () {
   signal input question[4];
   signal output out;
 
-  question[0] === solution[0] + solution[1] + solution[3] +solution[4];
+  question[0] === solution[0] + solution[1] + solution[3] + solution[4];
   question[1] === solution[1] + solution[2] + solution[4] + solution[5];
   question[2] === solution[3] + solution[4] + solution[6] + solution[7];
   question[3] === solution[4] + solution[5] + solution[7] + solution[8];

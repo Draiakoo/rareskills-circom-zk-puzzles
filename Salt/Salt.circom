@@ -1,6 +1,6 @@
 pragma circom 2.1.4;
 
-
+include "../node_modules/circomlib/circuits/mimcsponge.circom";
 
 // In this exercise, we will learn an important concept related to hashing . There are 2 values a and b. You want to 
 // perform computation on these and verify it , but secretly without discovering the values. 
@@ -16,7 +16,18 @@ pragma circom 2.1.4;
 // Output the res using 'out'.
 
 template Salt() {
-    // Your code here..
+    signal input a;
+    signal input b;
+    signal input salt;
+    signal output out;
+
+    component hash = MiMCSponge(2, 220, 1);
+
+    hash.ins[0] <== a;
+    hash.ins[1] <== b;
+    hash.k <== salt;
+
+    out <== hash.outs[0];
 }
 
 component main  = Salt();
